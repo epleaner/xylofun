@@ -24,12 +24,17 @@ const ContentfulRichText = props => {
                 src={file["en-US"].url}
               />
             )
+            break
           case "video":
             content = (
               <Video controls="below" fit="contain">
                 <source key="video" src={file["en-US"].url} type={mimeType} />
               </Video>
             )
+            break
+          default:
+            content = `Unrecognized format ${mimeType}`
+            break
         }
 
         return (

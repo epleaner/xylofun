@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Layout from '@common/Layout';
+import Page from '@common/Page';
 
 const NotFoundPage = () => (
-  <Layout>
+  <Page title="Not Found">
     <h1>NOT FOUND</h1>
-  </Layout>
+  </Page>
 );
 
 export default NotFoundPage;

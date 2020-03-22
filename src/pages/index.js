@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Layout from '@common/Layout';
+import Page from '@common/Page';
 
 const IndexPage = () => (
-  <Layout>
+  <Page title="Home">
     <p>I'm the main content :~)</p>
-  </Layout>
+  </Page>
 );
 
 export default IndexPage;

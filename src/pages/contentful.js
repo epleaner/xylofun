@@ -2,7 +2,7 @@ import React from 'react';
 import {graphql, useStaticQuery} from 'gatsby';
 
 import ContentfulRichText from '@common/ContentfulRichText';
-import Layout from '@common/Layout';
+import Page from '@common/Page';
 import SEO from '@common/SEO';
 
 const IndexPage = () => {
@@ -24,11 +24,11 @@ const IndexPage = () => {
   const pageContent = data.allContentfulPage.edges[0].node;
 
   return (
-    <Layout>
+    <Page>
       <SEO title="Home" />
       {pageContent.title}
       <ContentfulRichText document={pageContent.richText.json} />
-    </Layout>
+    </Page>
   );
 };
 

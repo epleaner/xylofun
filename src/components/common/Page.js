@@ -10,10 +10,10 @@ import NavBar from '@common/NavBar';
 import theme from '@styles/theme';
 import GlobalStyles from '@styles/GlobalStyles';
 
-const Layout = ({children}) => (
+const Page = ({title, children}) => (
   <ThemeProvider theme={theme}>
     <>
-      <SEO />
+      <SEO title={title} />
       <GlobalStyles />
       <Flex flexDirection="column" minHeight={'100vh'}>
         <NavBar />
@@ -24,8 +24,9 @@ const Layout = ({children}) => (
   </ThemeProvider>
 );
 
-Layout.propTypes = {
+Page.propTypes = {
+  title: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
 
-export default Layout;
+export default Page;

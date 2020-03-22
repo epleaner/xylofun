@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {ThemeProvider} from 'styled-components';
 import {Flex, Box} from 'rebass/styled-components';
+import {ParallaxProvider} from 'react-scroll-parallax';
 
 import SEO from '@common/SEO';
 import Footer from '@common/Footer';
@@ -15,11 +16,13 @@ const Page = ({title, children}) => (
     <>
       <SEO title={title} />
       <GlobalStyles />
-      <Flex flexDirection="column" minHeight={'100vh'}>
-        <NavBar />
-        <Box mt={6}>{children}</Box>
-        <Footer />
-      </Flex>
+      <ParallaxProvider>
+        <Flex flexDirection="column" minHeight={'100vh'}>
+          <NavBar />
+          <Box>{children}</Box>
+          <Footer />
+        </Flex>
+      </ParallaxProvider>
     </>
   </ThemeProvider>
 );

@@ -1,3 +1,5 @@
+const path = require("path")
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -17,17 +19,24 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Xylofun`,
+    description: ` XyloFun: Music for Everyone`,
+    author: `Eli Pleaner`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `team`,
+        path: `${__dirname}/src/images/team`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `art`,
+        path: `${__dirname}/src/images/art`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -35,13 +44,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Xylofun`,
+        short_name: `xylofun`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#FFDDAC`,
+        theme_color: `#FFDDAC`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `static/favicon.svg`,
       },
     },
     {
@@ -51,6 +60,26 @@ module.exports = {
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {},
+    },
+    `gatsby-plugin-svgr`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`average`, `prata\:400,700`],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@components": path.resolve(__dirname, "src/components"),
+          "@common": path.resolve(__dirname, "src/components/common"),
+          "@images": path.resolve(__dirname, "src/images"),
+          "@sections": path.resolve(__dirname, "src/components/sections"),
+          "@styles": path.resolve(__dirname, "src/styles/"),
+          "@static": path.resolve(__dirname, "static/"),
+        },
+      },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

@@ -4,10 +4,11 @@ import styled from 'styled-components';
 
 const StyledContainer = styled(Flex)`
   position: fixed;
+  z-index: 1;
 `;
 
 const NavBar = () => (
-  <StyledContainer as="header" width={1} p={4} alignItems="center">
+  <StyledContainer as="header" bg="white" width={1} p={2} alignItems="center">
     <Text fontWeight="bold">Xylofun</Text>
     <Box mx="auto" />
     <Link variant="nav" href="#!">

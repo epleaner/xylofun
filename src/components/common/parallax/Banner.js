@@ -2,12 +2,12 @@ import React from 'react';
 import {ParallaxBanner} from 'react-scroll-parallax';
 import BannerImage from '@images/hero/banner.jpg';
 
-const Banner = ({children}) => (
+const Banner = ({imgSrc, children}) => (
   <ParallaxBanner
     style={{height: '100%'}}
     layers={[
       {
-        image: BannerImage,
+        image: imgSrc || BannerImage,
         amount: 0.5,
       },
     ]}

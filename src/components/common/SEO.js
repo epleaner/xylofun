@@ -13,7 +13,7 @@ const SEO_DATA = {
   facebookId: '',
 };
 
-const SEO = ({title}) => (
+const SEO = ({title: pageTitle}) => (
   <Helmet>
     <meta property="fb:app_id" content={SEO_DATA.facebookId} />
     <meta property="og:title" content={SEO_DATA.title} />
@@ -31,7 +31,7 @@ const SEO = ({title}) => (
     <meta name="description" content={SEO_DATA.description} />
     <meta name="keywords" content={SEO_DATA.keywords.join(', ')} />
     <meta name="author" content={SEO_DATA.author} />
-    <title>{title || SEO_DATA.title}</title>
+    <title>{`${SEO_DATA.title} | ${pageTitle}`}</title>
     <html lang="en" />
   </Helmet>
 );

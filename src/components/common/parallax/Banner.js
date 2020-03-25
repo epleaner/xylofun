@@ -4,7 +4,7 @@ import BannerImage from '@images/hero/banner.jpg';
 
 const Banner = ({imgSrc, children}) => (
   <ParallaxBanner
-    style={{height: '100%'}}
+    style={{height: '100vh'}}
     layers={[
       {
         image: imgSrc || BannerImage,

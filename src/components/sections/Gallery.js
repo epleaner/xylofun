@@ -13,7 +13,6 @@ export default () => {
           node {
             fixed {
               ...GatsbyContentfulFixed_withWebp
-              title
             }
           }
         }

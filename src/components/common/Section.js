@@ -1,11 +1,11 @@
 import React from 'react';
-import {Box} from 'rebass';
+import {Flex} from 'rebass';
 
 const Section = ({children, ...rest}) => {
   return (
-    <Box minHeight="100vh" width="100vw" {...rest}>
+    <Flex flexWrap="wrap" minHeight="100vh" width="100vw" {...rest}>
       {children}
-    </Box>
+    </Flex>
   );
 };
 

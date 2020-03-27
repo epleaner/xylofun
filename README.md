@@ -10,6 +10,13 @@ Made with:
 
 todo:
 
+- page banners
+- masonry gallery
+- how to order
+- contact page
+- home page sections
+- CMS: Contentful? Wordpress? Youtube?
+
 design:
 
 animated unfolding red/green/blue circes

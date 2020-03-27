@@ -11,6 +11,9 @@ export default () => {
       contentfulMedia: allContentfulAsset {
         edges {
           node {
+            file {
+              fileName
+            }
             fixed {
               ...GatsbyContentfulFixed_withWebp
             }
@@ -34,8 +37,25 @@ export default () => {
 
   const {contentfulMedia} = data;
 
-  const photos = contentfulMedia.edges.map(({node: {fixed}}) => fixed);
-  debugger;
+  const photos = contentfulMedia.edges.map(
+      ({
+        node: {
+          fixed,
+          file: {fileName},
+        },
+      }) => {
+        return {
+          ...fixed,
+          title: fileName
+              .toLowerCase()
+              .split(' ')
+              .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+              .join(' ')
+              .replace(/\..+/g, ''),
+        };
+      },
+  );
+
   return (
     <Section>
       <Gallery photos={photos} onClick={openLightbox} />

@@ -6,12 +6,12 @@ import styled from 'styled-components';
 const Circle = styled(motion.div)`
   background: ${({color}) => color};
   border-radius: 100%;
-  width: 100px;
-  height: 100px;
+  width: ${({size}) => (size ? size : '100px')};
+  height: ${({size}) => (size ? size : '100px')};
 `;
 
-export default ({color}) => (
+export default (props) => (
   <Flex>
-    <Circle color={color} animate={{scale: 2}} />
+    <Circle {...props} animate={{scale: 2}} />
   </Flex>
 );

@@ -1,8 +1,15 @@
 import React from 'react';
-import Audio from 'react-audioplayer';
+import styled from 'styled-components';
+
+const StyledAudio = styled.audio`
+  width: 300px;
+`;
 
 export default ({src}) => {
   return (
-    <Audio width={300} autoPlay={false} playlist={[{name: '', src: src}]} />
+    <StyledAudio controls src={src}>
+      Your browser does not support the
+      <code>audio</code> element.
+    </StyledAudio>
   );
 };

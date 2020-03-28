@@ -3,6 +3,8 @@ import {Flex, Text, Box} from 'rebass/styled-components';
 import styled from 'styled-components';
 
 import StyledGatsbyLink from '@common/StyledGatsbyLink';
+import WideMenu from '@common/NavBar/WideMenu';
+import MobileMenu from '@common/NavBar/MobileMenu';
 
 const StyledContainer = styled(Flex)`
   position: fixed;
@@ -10,26 +12,19 @@ const StyledContainer = styled(Flex)`
   box-shadow: 0 0 10px 0 #808080a3;
 `;
 
+const navItems = ['About', 'Gallery', 'Who We Are'];
+
 const NavBar = () => (
   <StyledContainer as="header" bg="white" width={1} p={2} alignItems="center">
     <StyledGatsbyLink to="/">
       <Text fontWeight="bold">Xylofun</Text>
     </StyledGatsbyLink>
     <Box mx="auto" />
-    <Box mx={3}>
-      <StyledGatsbyLink to="/about">
-        <Text>About</Text>
-      </StyledGatsbyLink>
+    <Box display={['none', 'flex']}>
+      <WideMenu items={navItems} />
     </Box>
-    <Box mx={3}>
-      <StyledGatsbyLink to="/gallery">
-        <Text>Gallery</Text>
-      </StyledGatsbyLink>
-    </Box>
-    <Box mx={3}>
-      <StyledGatsbyLink to="/who-we-are">
-        <Text>Who We Are</Text>
-      </StyledGatsbyLink>
+    <Box display={['flex', 'none']}>
+      <MobileMenu items={navItems} />
     </Box>
   </StyledContainer>
 );

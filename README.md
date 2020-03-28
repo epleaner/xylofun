@@ -11,7 +11,6 @@ Made with:
 todo:
 
 - page banners
-- masonry gallery
 - how to order
 - contact page
 - home page sections

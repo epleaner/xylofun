@@ -3,23 +3,22 @@ import {graphql, useStaticQuery} from 'gatsby';
 import {Heading, Flex, Box} from 'rebass/styled-components';
 import styled from 'styled-components';
 import Section from '@common/Section';
-import Circle from '@common/shapes/Circle';
 import ContentfulRichText from '@common/ContentfulRichText';
 import Banner from '@common/parallax/Banner';
 
 const HeadingContainer = styled(Flex)`
   position: absolute;
-  top: 40%;
+  top: 37%;
 `;
 const ElevatedHeading = styled(Heading)`
   z-index: 1;
   color: white;
 `;
 
-const About = () => {
-  const data = useStaticQuery(graphql`
+export default () => {
+  const {pageContent} = useStaticQuery(graphql`
     {
-      pageContent: contentfulPage(title: { eq: "About Xylofun" }) {
+      pageContent: contentfulPage(title: { eq: "How to Order" }) {
         title
         richText {
           json
@@ -28,8 +27,6 @@ const About = () => {
     }
   `);
 
-  const {pageContent} = data;
-
   return (
     <Section>
       <Banner height="250px">
@@ -37,11 +34,9 @@ const About = () => {
           <ElevatedHeading>{pageContent.title}</ElevatedHeading>
         </HeadingContainer>
       </Banner>
-      <Box mx={[3, 6]} my={[5]}>
+      <Box mx={[3, 6]} my={4}>
         <ContentfulRichText document={pageContent.richText.json} />
       </Box>
     </Section>
   );
 };
-
-export default About;

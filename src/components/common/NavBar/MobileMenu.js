@@ -42,6 +42,7 @@ const variants = {
         when: 'beforeChildren',
         staggerChildren: 0.1,
         duration: 0.1,
+        ease: 'linear',
       },
     },
     hidden: {

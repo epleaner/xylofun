@@ -1,7 +1,8 @@
 import React from 'react';
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
 import {BLOCKS} from '@contentful/rich-text-types';
-import {Image, Box, Grid} from 'rebass';
+import {Image, Box, Grid, Text, Heading} from 'rebass/styled-components';
+import StyledGatsbyLink from '@common/StyledGatsbyLink';
 
 const ContentfulRichText = (props) => {
   const {document} = props;
@@ -9,6 +10,15 @@ const ContentfulRichText = (props) => {
   const options = {
     renderMark: {},
     renderNode: {
+      [BLOCKS.HEADING_1]: (node, children) => <Heading>{children}</Heading>,
+      [BLOCKS.HEADING_2]: (node, children) => <Heading>{children}</Heading>,
+      [BLOCKS.HEADING_3]: (node, children) => <Heading>{children}</Heading>,
+      [BLOCKS.HEADING_4]: (node, children) => <Heading>{children}</Heading>,
+      [BLOCKS.HEADING_5]: (node, children) => <Heading>{children}</Heading>,
+      [BLOCKS.HEADING_6]: (node, children) => <Heading>{children}</Heading>,
+      [BLOCKS.PARAGRAPH]: (node, children) => (
+        <Text lineHeight="body">{children}</Text>
+      ),
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const {title, description, file} = node.data.target.fields;
         const mimeType = file['en-US'].contentType;

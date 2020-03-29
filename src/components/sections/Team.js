@@ -21,7 +21,7 @@ export default () => {
           <StyledImage height="100%" src={Pedro} />
         </Box>
         <Box px={[3, 4, 5]} width={[1, 1 / 2]}>
-          <Heading mb={3}>Pedro Espi-Sanchis</Heading>
+          <Heading>Pedro Espi-Sanchis</Heading>
           <Text lineHeight="body">
             Pedro Espi-Sanchis is the founder and director of XyloFun. He is
             well known as ”Pedro the Music Man” from a long-running children’s
@@ -43,7 +43,7 @@ export default () => {
       </Flex>
       <Flex width={1} alignItems="center" flexWrap="wrap">
         <Box order={[1, 0]} px={[3, 4, 5]} width={[1, 1 / 2]}>
-          <Heading mb={3}>Lisa Espi</Heading>
+          <Heading>Lisa Espi</Heading>
           <Text lineHeight="body">
             Lisa Espi has an honours degree in Drama in Education from UCT and
             has worked for many years in the field of creative arts education,
@@ -64,7 +64,7 @@ export default () => {
           <StyledImage height="100%" src={Nelson} />
         </Box>
         <Box px={[3, 4, 5]} width={[1, 1 / 2]}>
-          <Heading mb={3}>Nelson Banderson</Heading>
+          <Heading>Nelson Banderson</Heading>
           <Text lineHeight="body">
             Nelson Banderson was born in Limpopo and has lived in Cape Town
             since he was a young child. He came to XyloFun as an established

@@ -8,12 +8,11 @@ import Banner from '@common/parallax/Banner';
 
 const HeadingContainer = styled(Flex)`
   position: absolute;
-  top: 50%;
+  top: 40%;
 `;
 const ElevatedHeading = styled(Heading)`
   z-index: 1;
   color: white;
-  top: 50%;
 `;
 
 export default () => {

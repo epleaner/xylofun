@@ -12,7 +12,7 @@ const StyledContainer = styled(Flex)`
   box-shadow: 0 0 10px 0 #808080a3;
 `;
 
-const navItems = ['About', 'Gallery', 'Who We Are', 'Contact'];
+const navItems = ['About', 'Gallery', 'Who We Are', 'How to Order', 'Contact'];
 
 const NavBar = () => (
   <StyledContainer as="header" bg="white" width={1} p={2} alignItems="center">

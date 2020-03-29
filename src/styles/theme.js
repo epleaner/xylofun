@@ -1,11 +1,17 @@
-import rebassPresetTheme from '@rebass/preset';
+import baseTheme from '@rebass/preset';
 
 const theme = {
-  ...rebassPresetTheme,
-  ...{
-    lineHeights: {
-      body: 1.75,
-      heading: 1.25,
+  ...baseTheme,
+  lineHeights: {
+    body: 1.75,
+    heading: 1.25,
+  },
+  space: [...Array(10).keys()].map((i) => i * 8),
+  text: {
+    ...baseTheme.text,
+    heading: {
+      ...baseTheme.text.heading,
+      marginY: [4, 5],
     },
   },
 };

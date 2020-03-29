@@ -12,8 +12,8 @@ todo:
 
 - page banners
 - how to order
-- contact page
 - home page sections
+- button hovers
 - CMS: Contentful? Wordpress? Youtube?
 
 design:

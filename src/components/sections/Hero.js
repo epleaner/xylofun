@@ -34,7 +34,7 @@ const Hero = () => {
     <Section mt={6}>
       <Banner image={BannerImage}>
         <HeadingBox>
-          <Heading color="white" fontFamily="heading" fontSize={8}>
+          <Heading color="white" fontSize={8}>
             Xylofun
           </Heading>
           <Text color="white" fontSize={6}>

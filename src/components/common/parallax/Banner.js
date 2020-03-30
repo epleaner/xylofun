@@ -1,21 +1,22 @@
-import React from "react"
-import { Flex, Heading } from "rebass/styled-components"
-import styled from "styled-components"
-import { ParallaxBanner } from "react-scroll-parallax"
-import BannerImage from "@images/hero/banner.jpg"
+import React from 'react';
+import {Flex, Heading} from 'rebass/styled-components';
+import styled from 'styled-components';
+import {ParallaxBanner} from 'react-scroll-parallax';
+import BannerImage from '@images/hero/banner.jpg';
 
 const HeadingContainer = styled(Flex)`
   position: absolute;
-  top: 40%;
-`
+  top: 50%;
+  transform: translateY(-50%);
+`;
 const ElevatedHeading = styled(Heading)`
   z-index: 1;
   color: white;
-`
+`;
 
-const Banner = ({ height, image, title, children }) => (
+const Banner = ({height, image, title, children}) => (
   <ParallaxBanner
-    style={{ height: height || "100vh" }}
+    style={{height: height || '100vh'}}
     layers={[
       {
         image: image || BannerImage,
@@ -26,11 +27,11 @@ const Banner = ({ height, image, title, children }) => (
   >
     {title && (
       <HeadingContainer justifyContent="center" width={1}>
-        <ElevatedHeading>{title}</ElevatedHeading>}
+        <ElevatedHeading fontSize={[6]}>{title}</ElevatedHeading>
       </HeadingContainer>
     )}
     {children}
   </ParallaxBanner>
-)
+);
 
-export default Banner
+export default Banner;

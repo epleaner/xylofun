@@ -10,7 +10,6 @@ Made with:
 
 todo:
 
-- page banners
 - home page sections
 - button hovers
 - CMS: Contentful? Wordpress? Youtube?

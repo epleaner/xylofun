@@ -3,7 +3,7 @@ import {graphql, useStaticQuery} from 'gatsby';
 import {Flex, Box, Button} from 'rebass/styled-components';
 import {Label, Input, Textarea} from '@rebass/forms';
 import Section from '@common/Section';
-import BannerImage from '@images/banners/contact.jpg';
+import BannerImage from '@images/banners/contact-us.jpg';
 
 export default () => {
   return (

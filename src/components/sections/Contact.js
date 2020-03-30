@@ -1,28 +1,15 @@
 import React from 'react';
 import {graphql, useStaticQuery} from 'gatsby';
-import {Heading, Flex, Box, Button} from 'rebass/styled-components';
+import {Flex, Box, Button} from 'rebass/styled-components';
 import {Label, Input, Textarea} from '@rebass/forms';
-import styled from 'styled-components';
 import Section from '@common/Section';
-import Banner from '@common/parallax/Banner';
-
-const HeadingContainer = styled(Flex)`
-  position: absolute;
-  top: 40%;
-`;
-const ElevatedHeading = styled(Heading)`
-  z-index: 1;
-  color: white;
-`;
+import BannerImage from '@images/banners/contact.jpg';
 
 export default () => {
   return (
-    <Section>
-      <Banner height="250px">
-        <HeadingContainer justifyContent="center" width={1}>
-          <ElevatedHeading>Contact Us</ElevatedHeading>
-        </HeadingContainer>
-      </Banner>
+    <Section
+      bannerProps={{title: 'Contact Us', image: BannerImage, height: '400px'}}
+    >
       <Flex justifyContent="center" mx={[3, 6]} width={1}>
         <Box my={[4, 5]} width={[1, 1 / 2]}>
           <form name="contact" method="POST" data-netlify="true">

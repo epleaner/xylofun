@@ -8,10 +8,12 @@ import styled from 'styled-components';
 import Section from '@common/Section';
 import Banner from '@common/parallax/Banner';
 
+import BannerImage from '@images/banners/hero.jpg';
+
 const HeadingBox = styled(Box)`
   position: absolute;
-  left: 15%;
-  top: 35%;
+  left: 5%;
+  top: 10%;
 `;
 
 const Hero = () => {
@@ -29,13 +31,13 @@ const Hero = () => {
   const bannerImageSrc = bannerImage.fixed.src;
 
   return (
-    <Section>
-      <Banner>
+    <Section mt={6}>
+      <Banner image={BannerImage}>
         <HeadingBox>
-          <Heading color="white" fontFamily="heading" fontSize={[7, 8]}>
+          <Heading color="white" fontFamily="heading" fontSize={8}>
             Xylofun
           </Heading>
-          <Text color="white" fontSize={[5, 6]}>
+          <Text color="white" fontSize={6}>
             Music for everyone.
           </Text>
         </HeadingBox>

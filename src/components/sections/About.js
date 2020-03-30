@@ -6,18 +6,10 @@ import Section from '@common/Section';
 import Circle from '@common/shapes/Circle';
 import ContentfulRichText from '@common/ContentfulRichText';
 import Banner from '@common/parallax/Banner';
-
-const HeadingContainer = styled(Flex)`
-  position: absolute;
-  top: 40%;
-`;
-const ElevatedHeading = styled(Heading)`
-  z-index: 1;
-  color: white;
-`;
+import AboutBannerImage from '@images/banners/about.jpg';
 
 const About = () => {
-  const data = useStaticQuery(graphql`
+  const {pageContent} = useStaticQuery(graphql`
     {
       pageContent: contentfulPage(title: { eq: "About Xylofun" }) {
         title
@@ -28,15 +20,14 @@ const About = () => {
     }
   `);
 
-  const {pageContent} = data;
-
   return (
-    <Section>
-      <Banner height="250px">
-        <HeadingContainer justifyContent="center" width={1}>
-          <ElevatedHeading>{pageContent.title}</ElevatedHeading>
-        </HeadingContainer>
-      </Banner>
+    <Section
+      bannerProps={{
+        title: pageContent.title,
+        image: AboutBannerImage,
+        height: '400px',
+      }}
+    >
       <Box mx={[3, 6]} my={[5]}>
         <ContentfulRichText document={pageContent.richText.json} />
       </Box>

@@ -11,7 +11,6 @@ Made with:
 todo:
 
 - page banners
-- how to order
 - home page sections
 - button hovers
 - CMS: Contentful? Wordpress? Youtube?

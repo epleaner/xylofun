@@ -13,7 +13,7 @@ const StyledImage = styled(Image)``;
 export default () => {
   return (
     <Section>
-      <Flex mt={4} width={1} alignItems="center" flexWrap="wrap">
+      <Flex my={8} width={1} alignItems="center" flexWrap="wrap">
         <Box mb={[3, 0]} width={[1, 1 / 2]}>
           <StyledImage height="100%" src={Pedro} />
         </Box>

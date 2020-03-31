@@ -1,18 +1,13 @@
 import React from 'react';
 import {Flex, Box, Text, Button} from 'rebass/styled-components';
 import styled from 'styled-components';
-import {Link} from 'gatsby';
+import StyledGatsbyLink from '@common/StyledGatsbyLink';
 
 import Section from '@common/Section';
 import AudioPlayer from '@common/AudioPlayer';
 import Circle from '@common/shapes/Circle';
 
 import SampleAudio from '@static/audio/sample.mp3';
-
-const StyledGatsbyLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
-`;
 
 const CircleContainer = ({children}) => (
   <Box my={[10, 3]} width={[1, 1, 1 / 3]}>
@@ -68,11 +63,11 @@ const Mission = () => (
       </Box>
       <Box width={1} mt={5} mb={15}>
         <Flex justifyContent="center">
-          <Button variant="outline" p={3}>
-            <StyledGatsbyLink to="/about">
+          <StyledGatsbyLink to="/about">
+            <Button variant="primary" p={3}>
               <Text variant="nav">Learn more</Text>
-            </StyledGatsbyLink>
-          </Button>
+            </Button>
+          </StyledGatsbyLink>
         </Flex>
       </Box>
     </Flex>

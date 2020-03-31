@@ -4,7 +4,7 @@ import {Flex} from 'rebass/styled-components';
 import styled from 'styled-components';
 
 const Circle = styled(motion.div)`
-  background: ${({color}) => color};
+  background: ${({theme, color}) => theme.colors[color].base};
   border-radius: 100%;
   width: ${({size}) => (size ? size : '100px')};
   height: ${({size}) => (size ? size : '100px')};

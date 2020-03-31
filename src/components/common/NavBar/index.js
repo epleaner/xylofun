@@ -17,7 +17,7 @@ const navItems = ['About', 'Gallery', 'Who We Are', 'How to Order', 'Contact'];
 const NavBar = () => (
   <StyledContainer
     as="header"
-    bg="white"
+    bg="background"
     width={1}
     py={2}
     px={[2, 10]}

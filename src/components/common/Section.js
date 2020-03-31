@@ -4,7 +4,13 @@ import Banner from '@components/common/parallax/Banner';
 
 const Section = ({bannerProps, children, ...rest}) => {
   return (
-    <Flex flexWrap="wrap" minHeight="100vh" width="100vw" {...rest}>
+    <Flex
+      bg="background"
+      flexWrap="wrap"
+      minHeight="100vh"
+      width="100vw"
+      {...rest}
+    >
       {bannerProps && <Banner {...bannerProps}></Banner>}
       {children}
     </Flex>

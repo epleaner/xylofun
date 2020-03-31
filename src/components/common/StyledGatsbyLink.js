@@ -9,6 +9,7 @@ const StyledLink = styled(Link)`
   &:focus,
   &.active {
     color: ${(props) => props.theme.colors.primary};
+    cursor: pointer;
   }
 `;
 

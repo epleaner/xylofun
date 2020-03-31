@@ -6,7 +6,7 @@ const theme = {
     body: 1.75,
     heading: 1.25,
   },
-  space: [...Array(10).keys()].map((i) => i * 8),
+  space: [...Array(20).keys()].map((i) => i * 8),
   text: {
     ...baseTheme.text,
     heading: {

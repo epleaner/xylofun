@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledAudio = styled.audio`
-  width: 300px;
+  width: 100%;
 `;
 
 export default ({src}) => {

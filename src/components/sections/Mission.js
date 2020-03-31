@@ -9,64 +9,64 @@ import Circle from '@common/shapes/Circle';
 
 import SampleAudio from '@static/audio/sample.mp3';
 
-const StyledAudioPlayer = styled(AudioPlayer)`
-  margin: 0 auto;
-`;
-
 const StyledGatsbyLink = styled(Link)`
   text-decoration: none;
   color: inherit;
 `;
 
+const CircleContainer = ({children}) => (
+  <Box my={[10, 3]} width={[1, 1, 1 / 3]}>
+    <Flex justifyContent="center" flexWrap="wrap">
+      {children}
+    </Flex>
+  </Box>
+);
+
 const Mission = () => (
-  <Section bg="white" px={[3, 5]}>
-    <Flex flexDirection="row" justifyContent="center" flexWrap="wrap">
-      <Box width={1} my={6}>
-        <Flex flexDirection="row" justifyContent="center">
-          <StyledAudioPlayer mx="auto" src={SampleAudio} />
+  <Section bg="white">
+    <Flex justifyContent="center" flexWrap="wrap">
+      <Box width={1} mb={[10, 15]}>
+        <AudioPlayer src={SampleAudio} />
+      </Box>
+      <Box width={1} mx={[0, 4]}>
+        <Flex flexWrap="wrap">
+          <CircleContainer>
+            <Box mb={4}>
+              <Circle color="red" />
+            </Box>
+            <Box mt={8} mx={2}>
+              <Text lineHeight="body" textAlign="center">
+                The XyloFun programme aims to extend the benefits of music
+                education to the schools in South Africa that need it the most.
+              </Text>
+            </Box>
+          </CircleContainer>
+          <CircleContainer>
+            <Box mb={4}>
+              <Circle color="green" />
+            </Box>
+            <Box mt={8} mx={2}>
+              <Text lineHeight="body" textAlign="center">
+                The XyloFun system enables students to start playing exciting,
+                creative music from the very first lesson.
+              </Text>
+            </Box>
+          </CircleContainer>
+          <CircleContainer>
+            <Box mb={4}>
+              <Circle color="blue" />
+            </Box>
+            <Box mt={8} mx={2}>
+              <Text lineHeight="body" textAlign="center">
+                XyloFun training courses give teachers instruments, skills and
+                confidence to teach the music curriculum effectively, regardless
+                of previous experience.
+              </Text>
+            </Box>
+          </CircleContainer>
         </Flex>
       </Box>
-      <Box mb={[6, 3]} width={[1, 1, 1 / 3]}>
-        <Flex flexDirection="row" justifyContent="center" flexWrap="wrap">
-          <Box mb={4}>
-            <Circle color="red" />
-          </Box>
-          <Box mt={[5]} mx={2}>
-            <Text textAlign="center">
-              The XyloFun programme aims to extend the benefits of music
-              education to the schools in South Africa that need it the most.
-            </Text>
-          </Box>
-        </Flex>
-      </Box>
-      <Box mb={[6, 3]} width={[1, 1, 1 / 3]}>
-        <Flex flexDirection="row" justifyContent="center" flexWrap="wrap">
-          <Box mb={4}>
-            <Circle color="green" />
-          </Box>
-          <Box mt={[5]} mx={2}>
-            <Text textAlign="center">
-              The XyloFun system enables students to start playing exciting,
-              creative music from the very first lesson.
-            </Text>
-          </Box>
-        </Flex>
-      </Box>
-      <Box mb={[0, 3]} width={[1, 1, 1 / 3]}>
-        <Flex flexDirection="row" justifyContent="center" flexWrap="wrap">
-          <Box mb={4}>
-            <Circle color="blue" />
-          </Box>
-          <Box mt={[5]} mx={2}>
-            <Text textAlign="center">
-              XyloFun training courses give teachers instruments, skills and
-              confidence to teach the music curriculum effectively, regardless
-              of previous experience.
-            </Text>
-          </Box>
-        </Flex>
-      </Box>
-      <Box width={1} my={5}>
+      <Box width={1} mt={5} mb={15}>
         <Flex justifyContent="center">
           <Button variant="outline" p={3}>
             <StyledGatsbyLink to="/about">

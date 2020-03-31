@@ -15,7 +15,14 @@ const StyledContainer = styled(Flex)`
 const navItems = ['About', 'Gallery', 'Who We Are', 'How to Order', 'Contact'];
 
 const NavBar = () => (
-  <StyledContainer as="header" bg="white" width={1} p={2} alignItems="center">
+  <StyledContainer
+    as="header"
+    bg="white"
+    width={1}
+    py={2}
+    px={[2, 10]}
+    alignItems="center"
+  >
     <StyledGatsbyLink to="/">
       <Text fontWeight="bold">Xylofun</Text>
     </StyledGatsbyLink>

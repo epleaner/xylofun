@@ -2,7 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'gatsby';
 
-export default styled(Link)`
+const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
+  &:hover,
+  &:focus,
+  &.active {
+    color: ${(props) => props.theme.colors.primary};
+  }
 `;
+
+export default (props) => <StyledLink activeClassName="active" {...props} />;

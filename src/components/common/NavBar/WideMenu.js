@@ -6,14 +6,14 @@ import StyledGatsbyLink from '@common/StyledGatsbyLink';
 const WideMenu = ({items}) => (
   <>
     {items.map((item) => (
-      <Box key={item} mx={3}>
+      <Box key={item} mx={2}>
         <StyledGatsbyLink
           to={`/${item
               .toLowerCase()
               .split(' ')
               .join('-')}`}
         >
-          <Text variant="nav">{item}</Text>
+          {item}
         </StyledGatsbyLink>
       </Box>
     ))}

@@ -11,7 +11,6 @@ Made with:
 todo:
 
 - home page sections
-- button hovers
 - CMS: Contentful? Wordpress? Youtube?
 
 design:

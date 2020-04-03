@@ -54,6 +54,11 @@ const theme = {
       ...baseTheme.text.heading,
       marginY: [4, 5],
     },
+    body: {
+      fontFamily: 'body',
+      lineHeight: 'body',
+      fontWeight: 'body',
+    },
   },
   buttons: {
     ...baseTheme.buttons,
@@ -65,6 +70,20 @@ const theme = {
       ':hover,:focus,.active': {
         bg: 'orange.base',
       },
+    },
+    outline: {
+      ...baseTheme.buttons.outline,
+      'transition': 'all linear .15s',
+      'color': 'white',
+      'border': '1px solid white',
+      'boxShadow': 'none',
+      ':hover,:focus,.active': {bg: 'white', color: 'inherit'},
+    },
+    circle: {
+      bg: 'white',
+      width: '200px',
+      height: '200px',
+      borderRadius: '100%',
     },
   },
 };

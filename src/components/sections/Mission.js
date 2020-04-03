@@ -64,7 +64,7 @@ const Mission = () => (
       <Box width={1} mt={5} mb={15}>
         <Flex justifyContent="center">
           <StyledGatsbyLink to="/about">
-            <Button variant="primary" p={3}>
+            <Button sx={{cursor: 'pointer'}} variant="primary" p={3}>
               <Text variant="nav">Learn more</Text>
             </Button>
           </StyledGatsbyLink>

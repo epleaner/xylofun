@@ -1,44 +1,44 @@
-import baseTheme from '@rebass/preset';
+import baseTheme from "@rebass/preset"
 
 const palette = {
   red: {
-    base: 'rgba(252, 80, 67,1)',
-    red1: 'rgba(255,153,145,1)',
-    red2: 'rgba(255,114,102,1)',
-    red3: 'rgba(239, 35, 19,1)',
-    red4: 'rgba(182, 21,  8,1)',
+    base: "rgba(252, 80, 67,1)",
+    red1: "rgba(255,153,145,1)",
+    red2: "rgba(255,114,102,1)",
+    red3: "rgba(239, 35, 19,1)",
+    red4: "rgba(182, 21,  8,1)",
   },
 
   orange: {
-    base: 'rgba(252,170, 67,1)',
-    orange1: 'rgba(255,206,145,1)',
-    orange2: 'rgba(255,188,102,1)',
-    orange3: 'rgba(239,142, 19,1)',
-    orange4: 'rgba(182,105,  8,1)',
+    base: "rgba(252,170, 67,1)",
+    orange1: "rgba(255,206,145,1)",
+    orange2: "rgba(255,188,102,1)",
+    orange3: "rgba(239,142, 19,1)",
+    orange4: "rgba(182,105,  8,1)",
   },
 
   blue: {
-    base: 'rgba( 50,117,161,1)',
-    blue1: 'rgba(125,176,210,1)',
-    blue2: 'rgba( 80,142,183,1)',
-    blue3: 'rgba( 20,101,153,1)',
-    blue4: 'rgba( 12, 75,116,1)',
+    base: "#0044fe",
+    blue1: "rgba(125,176,210,1)",
+    blue2: "rgba( 80,142,183,1)",
+    blue3: "rgba( 20,101,153,1)",
+    blue4: "rgba( 12, 75,116,1)",
   },
 
   green: {
-    base: 'rgba( 51,193, 76,1)',
-    green1: 'rgba(128,226,145,1)',
-    green2: 'rgba( 84,208,105,1)',
-    green3: 'rgba( 14,183, 44,1)',
-    green4: 'rgba(  6,139, 29,1)',
+    base: "rgba( 51,193, 76,1)",
+    green1: "rgba(128,226,145,1)",
+    green2: "rgba( 84,208,105,1)",
+    green3: "rgba( 14,183, 44,1)",
+    green4: "rgba(  6,139, 29,1)",
   },
-};
+}
 
 const theme = {
   ...baseTheme,
   colors: {
     ...baseTheme.colors,
-    background: '#fafafa',
+    background: "#fafafa",
     primary: palette.blue.base,
     secondary: palette.green.base,
     ...palette,
@@ -47,7 +47,7 @@ const theme = {
     body: 1.75,
     heading: 1.25,
   },
-  space: [...Array(20).keys()].map((i) => i * 8),
+  space: [...Array(20).keys()].map(i => i * 8),
   text: {
     ...baseTheme.text,
     heading: {
@@ -55,37 +55,37 @@ const theme = {
       marginY: [4, 5],
     },
     body: {
-      fontFamily: 'body',
-      lineHeight: 'body',
-      fontWeight: 'body',
+      fontFamily: "body",
+      lineHeight: "body",
+      fontWeight: "body",
     },
   },
   buttons: {
     ...baseTheme.buttons,
     primary: {
       ...baseTheme.buttons.primary,
-      'bg': 'orange.orange3',
-      'transition': 'all linear .15s',
+      bg: "orange.orange3",
+      transition: "all linear .15s",
 
-      ':hover,:focus,.active': {
-        bg: 'orange.base',
+      ":hover,:focus,.active": {
+        bg: "orange.base",
       },
     },
     outline: {
       ...baseTheme.buttons.outline,
-      'transition': 'all linear .15s',
-      'color': 'white',
-      'border': '1px solid white',
-      'boxShadow': 'none',
-      ':hover,:focus,.active': {bg: 'white', color: 'inherit'},
+      transition: "all linear .15s",
+      color: "white",
+      border: "1px solid white",
+      boxShadow: "none",
+      ":hover,:focus,.active": { bg: "white", color: "inherit" },
     },
     circle: {
-      bg: 'white',
-      width: '200px',
-      height: '200px',
-      borderRadius: '100%',
+      bg: "white",
+      width: "200px",
+      height: "200px",
+      borderRadius: "100%",
     },
   },
-};
+}
 
-export default theme;
+export default theme

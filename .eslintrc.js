@@ -17,4 +17,7 @@ module.exports = {
   },
   plugins: ["react"],
   rules: {},
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+  },
 }

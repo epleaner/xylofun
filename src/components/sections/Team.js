@@ -1,14 +1,14 @@
-import React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
-import {Heading, Flex, Box, Image, Text} from 'rebass/styled-components';
-import styled from 'styled-components';
+import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
+import { Heading, Flex, Box, Image, Text } from "rebass/styled-components"
+import styled from "styled-components"
 
-import Section from '@common/Section';
-import Pedro from '@images/team/pedro.jpg';
-import Lisa from '@images/team/lisa.jpg';
-import Nelson from '@images/team/nelson.jpg';
+import Section from "@common/Section"
+import Pedro from "@images/team/pedro.jpg"
+import Lisa from "@images/team/lisa.jpg"
+import Nelson from "@images/team/nelson.jpg"
 
-const StyledImage = styled(Image)``;
+const StyledImage = styled(Image)``
 
 export default () => {
   return (
@@ -74,5 +74,5 @@ export default () => {
         </Box>
       </Flex>
     </Section>
-  );
-};
+  )
+}

@@ -1,8 +1,8 @@
-const path = require('path');
+const path = require("path")
 
-require('dotenv').config({
+require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-});
+})
 
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
@@ -10,19 +10,19 @@ const contentfulConfig = {
   richText: {
     resolveFieldLocales: true,
   },
-};
+}
 
-const {spaceId, accessToken} = contentfulConfig;
+const { spaceId, accessToken } = contentfulConfig
 
 if (!spaceId || !accessToken) {
   throw new Error(
-      'Contentful spaceId and the access token need to be provided.',
-  );
+    "Contentful spaceId and the access token need to be provided."
+  )
 }
 
 module.exports = {
   siteMetadata: {
-    title: `Xylofun`,
+    title: `XyloFun`,
     description: ` XyloFun: Music for Everyone`,
     author: `Eli Pleaner`,
   },
@@ -40,7 +40,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Xylofun`,
+        name: `XyloFun`,
         short_name: `xylofun`,
         start_url: `/`,
         background_color: `#FFDDAC`,
@@ -68,12 +68,12 @@ module.exports = {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
-          '@components': path.resolve(__dirname, 'src/components'),
-          '@common': path.resolve(__dirname, 'src/components/common'),
-          '@images': path.resolve(__dirname, 'src/images'),
-          '@sections': path.resolve(__dirname, 'src/components/sections'),
-          '@styles': path.resolve(__dirname, 'src/styles/'),
-          '@static': path.resolve(__dirname, 'static/'),
+          "@components": path.resolve(__dirname, "src/components"),
+          "@common": path.resolve(__dirname, "src/components/common"),
+          "@images": path.resolve(__dirname, "src/images"),
+          "@sections": path.resolve(__dirname, "src/components/sections"),
+          "@styles": path.resolve(__dirname, "src/styles/"),
+          "@static": path.resolve(__dirname, "static/"),
         },
       },
     },
@@ -81,4 +81,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-};
+}

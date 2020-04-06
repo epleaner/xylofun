@@ -1,19 +1,19 @@
-import React from 'react';
-import Helmet from 'react-helmet';
+import React from "react"
+import Helmet from "react-helmet"
 
 const SEO_DATA = {
   description:
-    'Xylofun: aiming to extend the benefits of music education to the schools in South Africa that need it the most.',
-  title: 'Xylofun',
-  url: 'xylofun.net',
-  author: 'epleaner',
-  keywords: ['xylofun', 'music', 'education', 'south africa'],
-  img: '',
-  twitterId: '',
-  facebookId: '',
-};
+    "XyloFun: aiming to extend the benefits of music education to the schools in South Africa that need it the most.",
+  title: "XyloFun",
+  url: "xylofun.net",
+  author: "epleaner",
+  keywords: ["xylofun", "music", "education", "south africa"],
+  img: "",
+  twitterId: "",
+  facebookId: "",
+}
 
-const SEO = ({title: pageTitle}) => (
+const SEO = ({ title: pageTitle }) => (
   <Helmet>
     <meta property="fb:app_id" content={SEO_DATA.facebookId} />
     <meta property="og:title" content={SEO_DATA.title} />
@@ -29,11 +29,11 @@ const SEO = ({title: pageTitle}) => (
     <meta name="twitter:domain" content={SEO_DATA.url} />
     <meta name="twitter:image:src" content={SEO_DATA.img} />
     <meta name="description" content={SEO_DATA.description} />
-    <meta name="keywords" content={SEO_DATA.keywords.join(', ')} />
+    <meta name="keywords" content={SEO_DATA.keywords.join(", ")} />
     <meta name="author" content={SEO_DATA.author} />
     <title>{`${SEO_DATA.title} | ${pageTitle}`}</title>
     <html lang="en" />
   </Helmet>
-);
+)
 
-export default SEO;
+export default SEO

@@ -1,15 +1,15 @@
-import React from 'react';
-import {Box, Text, Link} from 'rebass/styled-components';
+import React from "react"
+import { Box, Link, Text } from "rebass/styled-components"
 
 const Footer = () => (
-  <Box bg="background" mt="auto" px={4} py={2} width={1} as="footer">
+  <Box bg="background" px={4} py={6} width={1} as="footer">
     <Text fontSize={2} textAlign="center">
-      © 2020 Xylofun
+      © 2020 XyloFun
     </Text>
     <Text mt={2} fontSize={1} textAlign="center">
       Website by <Link href="https://elipleaner.com">Eli Pleaner</Link>
     </Text>
   </Box>
-);
+)
 
-export default Footer;
+export default Footer

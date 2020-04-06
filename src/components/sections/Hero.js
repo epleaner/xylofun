@@ -1,20 +1,20 @@
-import React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
-import Img from 'gatsby-image';
+import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 
-import {Box, Text, Heading} from 'rebass/styled-components';
-import styled from 'styled-components';
+import { Box, Text, Heading } from "rebass/styled-components"
+import styled from "styled-components"
 
-import Section from '@common/Section';
-import Banner from '@common/parallax/Banner';
+import Section from "@common/Section"
+import Banner from "@common/parallax/Banner"
+import BrandText from "@common/BrandText"
 
-import BannerImage from '@images/banners/hero.jpg';
+import BannerImage from "@images/banners/happy-student.jpg"
 
 const HeadingBox = styled(Box)`
   position: absolute;
   left: 5%;
   top: 10%;
-`;
+`
 
 const Hero = () => {
   const data = useStaticQuery(graphql`
@@ -25,17 +25,17 @@ const Hero = () => {
         }
       }
     }
-  `);
+  `)
 
-  const {bannerImage} = data;
-  const bannerImageSrc = bannerImage.fixed.src;
+  const { bannerImage } = data
+  const bannerImageSrc = bannerImage.fixed.src
 
   return (
     <Section mt={6}>
       <Banner image={BannerImage}>
         <HeadingBox>
           <Heading color="white" fontSize={8}>
-            Xylofun
+            <BrandText />
           </Heading>
           <Text color="white" fontSize={6}>
             Music for everyone.
@@ -43,7 +43,7 @@ const Hero = () => {
         </HeadingBox>
       </Banner>
     </Section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

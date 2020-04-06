@@ -1,7 +1,7 @@
 {
   "name": "xylofun",
   "private": true,
-  "description": "Website for Xylofun project",
+  "description": "Website for XyloFun project",
   "version": "0.1.0",
   "author": "Eli Pleaner <pleanbean@gmail.com>",
   "dependencies": {

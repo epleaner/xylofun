@@ -1,4 +1,4 @@
-#Xylofun
+#XyloFun
 Music for everyone :~)
 
 Made with:

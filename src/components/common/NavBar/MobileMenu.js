@@ -1,17 +1,17 @@
-import React, {useState} from 'react';
-import styled from 'styled-components';
-import {Box, Text} from 'rebass/styled-components';
-import {motion, AnimatePresence} from 'framer-motion';
-import {Menu} from '@styled-icons/feather';
-import {Close} from '@styled-icons/evil';
+import React, { useState } from "react"
+import styled from "styled-components"
+import { Box, Text } from "rebass/styled-components"
+import { motion, AnimatePresence } from "framer-motion"
+import { Menu } from "@styled-icons/feather"
+import { Close } from "@styled-icons/evil"
 
-import StyledGatsbyLink from '@common/StyledGatsbyLink';
+import NavLink from "@common/NavLink"
 
 const StyledHoverCursor = styled(Box)`
   &:hover {
     cursor: pointer;
   }
-`;
+`
 
 const StyledDropMenu = styled.nav`
   position: fixed;
@@ -20,29 +20,29 @@ const StyledDropMenu = styled.nav`
   left: 0;
   height: 100vh;
   width: 100vw;
-`;
+`
 
 const StyledClose = styled(Close)`
   position: absolute;
   top: 8px;
   right: 8px;
-`;
+`
 
 const StyledList = styled.ul`
   list-style: none;
   margin-top: 100px;
   padding: 0;
-`;
+`
 
 const variants = {
   list: {
     visible: {
       opacity: 1,
       transition: {
-        when: 'beforeChildren',
+        when: "beforeChildren",
         staggerChildren: 0.1,
         duration: 0.1,
-        ease: 'linear',
+        ease: "linear",
       },
     },
     hidden: {
@@ -50,13 +50,13 @@ const variants = {
     },
   },
   item: {
-    visible: {opacity: 1, x: 0},
-    hidden: {opacity: 0, x: -100},
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: -100 },
   },
-};
+}
 
-export default ({items}) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+export default ({ items }) => {
+  const [menuOpen, setMenuOpen] = useState(false)
   return (
     <>
       <StyledHoverCursor>
@@ -83,23 +83,23 @@ export default ({items}) => {
                 />
               </StyledHoverCursor>
               <StyledList>
-                {items.map((item) => (
+                {items.map(item => (
                   <motion.li
                     initial="hidden"
                     exit="hidden"
                     key={item}
                     variants={variants.item}
                   >
-                    <StyledGatsbyLink
+                    <NavLink
                       to={`/${item
-                          .toLowerCase()
-                          .split(' ')
-                          .join('-')}`}
+                        .toLowerCase()
+                        .split(" ")
+                        .join("-")}`}
                     >
                       <Text mb={3} variant="nav" textAlign="center">
                         {item}
                       </Text>
-                    </StyledGatsbyLink>
+                    </NavLink>
                   </motion.li>
                 ))}
               </StyledList>
@@ -108,5 +108,5 @@ export default ({items}) => {
         </AnimatePresence>
       )}
     </>
-  );
-};
+  )
+}

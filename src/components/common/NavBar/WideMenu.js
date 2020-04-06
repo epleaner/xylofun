@@ -1,23 +1,27 @@
-import React from 'react';
-import {Text, Box} from 'rebass/styled-components';
+import React from "react"
+import { Text, Box } from "rebass/styled-components"
 
-import StyledGatsbyLink from '@common/StyledGatsbyLink';
+import NavLink from "@common/NavLink"
 
-const WideMenu = ({items}) => (
+const WideMenu = ({ items }) => (
   <>
-    {items.map((item) => (
+    {items.map(item => (
       <Box key={item} mx={2}>
-        <StyledGatsbyLink
-          to={`/${item
-              .toLowerCase()
-              .split(' ')
-              .join('-')}`}
+        <NavLink
+          to={
+            item === "Home"
+              ? "/"
+              : `/${item
+                  .toLowerCase()
+                  .split(" ")
+                  .join("-")}`
+          }
         >
           {item}
-        </StyledGatsbyLink>
+        </NavLink>
       </Box>
     ))}
   </>
-);
+)
 
-export default WideMenu;
+export default WideMenu

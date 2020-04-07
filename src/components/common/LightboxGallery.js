@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react"
 import Gallery from "react-photo-gallery"
 import Carousel, { Modal, ModalGateway } from "react-images"
 
-export default ({ photos }) => {
+export default ({ photos, ...otherProps }) => {
   const [currentImage, setCurrentImage] = useState(0)
   const [viewerIsOpen, setViewerIsOpen] = useState(false)
 
@@ -18,7 +18,7 @@ export default ({ photos }) => {
 
   return (
     <>
-      <Gallery photos={photos} onClick={openLightbox} />
+      <Gallery {...otherProps} photos={photos} onClick={openLightbox} />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>

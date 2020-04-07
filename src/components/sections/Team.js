@@ -1,21 +1,48 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { Heading, Flex, Box, Image, Text } from "rebass/styled-components"
-import styled from "styled-components"
 
 import Section from "@common/Section"
+import LightboxGallery from "@common/LightboxGallery"
+
 import Pedro from "@images/team/pedro.jpg"
 import Lisa from "@images/team/lisa.jpg"
 import Nelson from "@images/team/nelson.jpg"
 
-const StyledImage = styled(Image)``
-
 export default () => {
+  const { mediaCollection } = useStaticQuery(graphql`
+    {
+      mediaCollection: contentfulMediaCollection(name: { eq: "Pedro Bio" }) {
+        media {
+          file {
+            fileName
+          }
+          fixed {
+            ...GatsbyContentfulFixed_withWebp
+          }
+        }
+      }
+    }
+  `)
+
+  const photos = mediaCollection.media.map(({ fixed, file: { fileName } }) => {
+    return {
+      ...fixed,
+      title: fileName
+        .toLowerCase()
+        .split(" ")
+        .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+        .join(" ")
+        .replace(/\..+/g, ""),
+    }
+  })
+
   return (
     <Section>
       <Flex my={8} width={1} alignItems="center" flexWrap="wrap">
         <Box mb={[3, 0]} width={[1, 1 / 2]}>
-          <StyledImage height="100%" src={Pedro} />
+          <Image height="100%" src={Pedro} />
+          <LightboxGallery margin={0} photos={photos} />
         </Box>
         <Box px={[3, 4, 5]} width={[1, 1 / 2]}>
           <Heading>Pedro Espi-Sanchis</Heading>
@@ -53,12 +80,12 @@ export default () => {
           </Text>
         </Box>
         <Box order={[0, 1]} mb={[3, 0]} mt={[4, 0]} width={[1, 1 / 2]}>
-          <StyledImage height="100%" src={Lisa} />
+          <Image height="100%" src={Lisa} />
         </Box>
       </Flex>
       <Flex width={1} alignItems="center" flexWrap="wrap">
         <Box mb={[3, 0]} mt={[4, 0]} width={[1, 1 / 2]}>
-          <StyledImage height="100%" src={Nelson} />
+          <Image height="100%" src={Nelson} />
         </Box>
         <Box px={[3, 4, 5]} width={[1, 1 / 2]}>
           <Heading>Nelson Banderson</Heading>

@@ -6,43 +6,32 @@ import LightboxGallery from "@common/LightboxGallery"
 import Section from "@common/Section"
 
 export default () => {
-  const data = useStaticQuery(graphql`
+  const { mediaCollection } = useStaticQuery(graphql`
     {
-      contentfulMedia: allContentfulAsset {
-        edges {
-          node {
-            file {
-              fileName
-            }
-            fixed {
-              ...GatsbyContentfulFixed_withWebp
-            }
+      mediaCollection: contentfulMediaCollection(name: { eq: "Gallery" }) {
+        media {
+          file {
+            fileName
+          }
+          fixed {
+            ...GatsbyContentfulFixed_withWebp
           }
         }
       }
     }
   `)
 
-  const { contentfulMedia } = data
-
-  const photos = contentfulMedia.edges.map(
-    ({
-      node: {
-        fixed,
-        file: { fileName },
-      },
-    }) => {
-      return {
-        ...fixed,
-        title: fileName
-          .toLowerCase()
-          .split(" ")
-          .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-          .join(" ")
-          .replace(/\..+/g, ""),
-      }
+  const photos = mediaCollection.media.map(({ fixed, file: { fileName } }) => {
+    return {
+      ...fixed,
+      title: fileName
+        .toLowerCase()
+        .split(" ")
+        .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+        .join(" ")
+        .replace(/\..+/g, ""),
     }
-  )
+  })
 
   return (
     <Section>

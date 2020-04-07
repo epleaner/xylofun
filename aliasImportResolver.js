@@ -13,7 +13,6 @@ const aliasImports = {
 }
 
 export default function customResolver({ basedir, moduleName }) {
-  console.log(basedir, moduleName)
   // You can use whatever strategy you want to convert your modules
   const [prefix, ...rest] = moduleName.split("/")
 

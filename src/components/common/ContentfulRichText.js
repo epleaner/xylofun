@@ -1,11 +1,11 @@
-import React from 'react';
-import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
-import {BLOCKS} from '@contentful/rich-text-types';
-import {Image, Box, Grid, Text, Heading} from 'rebass/styled-components';
-import StyledGatsbyLink from '@common/StyledGatsbyLink';
+import React from "react"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { BLOCKS } from "@contentful/rich-text-types"
+import { Image, Box, Grid, Text, Heading } from "rebass/styled-components"
+import StyledGatsbyLink from "@common/StyledGatsbyLink"
 
-const ContentfulRichText = (props) => {
-  const {document} = props;
+const ContentfulRichText = props => {
+  const { document } = props
 
   const options = {
     renderMark: {},
@@ -19,40 +19,43 @@ const ContentfulRichText = (props) => {
       [BLOCKS.PARAGRAPH]: (node, children) => (
         <Text lineHeight="body">{children}</Text>
       ),
-      [BLOCKS.EMBEDDED_ASSET]: (node) => {
-        const {title, description, file} = node.data.target.fields;
-        const mimeType = file['en-US'].contentType;
-        const mimeGroup = mimeType.split('/')[0];
-        let content;
+      [BLOCKS.EMBEDDED_ASSET]: node => {
+        let { title, description, file } = node.data.target.fields
+        file = file["en-US"] ? file["en-US"] : file
+
+        const mimeType = file.contentType
+        const mimeGroup = mimeType.split("/")[0]
+        let content
 
         switch (mimeGroup) {
-          case 'image':
+          case "image":
             content = (
               <Image
-                title={title ? title['en-US'] : null}
-                alt={description ? description['en-US'] : null}
-                src={file['en-US'].url}
+                my={5}
+                title={title ? title["en-US"] : null}
+                alt={description ? description["en-US"] : null}
+                src={file.url}
               />
-            );
-            break;
-          case 'video':
+            )
+            break
+          case "video":
             content = (
               <video controls="below" fit="contain">
-                <source key="video" src={file['en-US'].url} type={mimeType} />
+                <source key="video" src={file.url} type={mimeType} />
               </video>
-            );
-            break;
+            )
+            break
           default:
-            content = `Unrecognized format ${mimeType}`;
-            break;
+            content = `Unrecognized format ${mimeType}`
+            break
         }
 
-        return <Box>{content}</Box>;
+        return <Box>{content}</Box>
       },
     },
-  };
+  }
 
-  return documentToReactComponents(document, options);
-};
+  return documentToReactComponents(document, options)
+}
 
-export default ContentfulRichText;
+export default ContentfulRichText

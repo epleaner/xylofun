@@ -1,9 +1,8 @@
-import React from 'react';
-import {Flex, Box, Text, Button} from 'rebass/styled-components';
-import styled from 'styled-components';
+import React from "react"
+import { Flex, Box, Text, Button } from "rebass/styled-components"
 
-import StyledGatsbyLink from '@common/StyledGatsbyLink';
-import Section from '@common/Section';
+import StyledGatsbyLink from "@common/StyledGatsbyLink"
+import Section from "@common/Section"
 
 export default () => (
   <Section
@@ -22,11 +21,11 @@ export default () => (
     <Flex justifyContent="center" width={1}>
       <Box>
         <StyledGatsbyLink to="/contact">
-          <Button sx={{cursor: 'pointer'}} variant="outline" p={3}>
+          <Button sx={{ cursor: "pointer" }} variant="outline" p={3}>
             <Text variant="nav">Contact Us</Text>
           </Button>
         </StyledGatsbyLink>
       </Box>
     </Flex>
   </Section>
-);
+)

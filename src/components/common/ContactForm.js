@@ -1,6 +1,6 @@
-import React from 'react';
-import {Flex, Box, Button} from 'rebass/styled-components';
-import {Label, Input, Textarea} from '@rebass/forms';
+import React from "react"
+import { Flex, Box, Button, Text } from "rebass/styled-components"
+import { Label, Input, Textarea } from "@rebass/forms"
 
 export default () => {
   return (
@@ -44,9 +44,18 @@ export default () => {
           <Textarea width={[1]} id="message" name="message" defaultValue="" />
         </Box>
         <Box width={1} mb={3}>
-          <Button type="submit">Submit</Button>
+          <Flex justifyContent="center">
+            <Button
+              mx="auto"
+              type="submit"
+              sx={{ cursor: "pointer" }}
+              variant="primary"
+            >
+              <Text variant="nav">Submit</Text>
+            </Button>
+          </Flex>
         </Box>
       </Flex>
     </form>
-  );
-};
+  )
+}

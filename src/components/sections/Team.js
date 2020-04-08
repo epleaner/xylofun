@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
 import { Heading, Flex, Box, Image, Text } from "rebass/styled-components"
 
 import Section from "@common/Section"
@@ -10,9 +11,9 @@ import Lisa from "@images/team/lisa.jpg"
 import Nelson from "@images/team/nelson.jpg"
 
 export default () => {
-  const { mediaCollection } = useStaticQuery(graphql`
+  const { pedroMedia, teamPhotos } = useStaticQuery(graphql`
     {
-      mediaCollection: contentfulMediaCollection(name: { eq: "Pedro Bio" }) {
+      pedroMedia: contentfulMediaCollection(name: { eq: "Pedro Bio" }) {
         media {
           file {
             fileName
@@ -22,27 +23,52 @@ export default () => {
           }
         }
       }
+      teamPhotos: allFile(filter: { sourceInstanceName: { eq: "team" } }) {
+        edges {
+          node {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid_withWebp
+                originalName
+              }
+            }
+          }
+        }
+      }
     }
   `)
 
-  const photos = mediaCollection.media.map(({ fixed, file: { fileName } }) => {
-    return {
-      ...fixed,
-      title: fileName
-        .toLowerCase()
-        .split(" ")
-        .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-        .join(" ")
-        .replace(/\..+/g, ""),
+  console.log(teamPhotos)
+
+  let teamPhotosByName = {}
+  teamPhotos.edges.forEach(
+    ({
+      node: {
+        childImageSharp: { fluid },
+      },
+    }) => (teamPhotosByName[fluid.originalName.split(".")[0]] = fluid)
+  )
+
+  const pedroGalleryPhotos = pedroMedia.media.map(
+    ({ fixed, file: { fileName } }) => {
+      return {
+        ...fixed,
+        title: fileName
+          .toLowerCase()
+          .split(" ")
+          .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+          .join(" ")
+          .replace(/\..+/g, ""),
+      }
     }
-  })
+  )
 
   return (
     <Section>
       <Flex my={8} width={1} alignItems="center" flexWrap="wrap">
         <Box mb={[3, 0]} width={[1, 1 / 2]}>
-          <Image height="100%" src={Pedro} />
-          <LightboxGallery margin={0} photos={photos} />
+          <Img fluid={teamPhotosByName.pedro} />
+          <LightboxGallery margin={0} photos={pedroGalleryPhotos} />
         </Box>
         <Box px={[3, 4, 5]} width={[1, 1 / 2]}>
           <Heading>Pedro Espi-Sanchis</Heading>
@@ -80,12 +106,12 @@ export default () => {
           </Text>
         </Box>
         <Box order={[0, 1]} mb={[3, 0]} mt={[4, 0]} width={[1, 1 / 2]}>
-          <Image height="100%" src={Lisa} />
+          <Img fluid={teamPhotosByName.lisa} />
         </Box>
       </Flex>
       <Flex width={1} alignItems="center" flexWrap="wrap">
         <Box mb={[3, 0]} mt={[4, 0]} width={[1, 1 / 2]}>
-          <Image height="100%" src={Nelson} />
+          <Img fluid={teamPhotosByName.nelson} />
         </Box>
         <Box px={[3, 4, 5]} width={[1, 1 / 2]}>
           <Heading>Nelson Banderson</Heading>

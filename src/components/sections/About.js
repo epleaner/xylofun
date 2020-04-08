@@ -13,6 +13,11 @@ const About = () => {
     {
       pageContent: contentfulPage(title: { eq: "About XyloFun" }) {
         title
+        banner {
+          fixed(quality: 100, width: 2000) {
+            ...GatsbyContentfulFixed_withWebp
+          }
+        }
         richText {
           json
         }
@@ -24,7 +29,7 @@ const About = () => {
     <Section
       bannerProps={{
         title: pageContent.title,
-        image: AboutBannerImage,
+        image: pageContent.banner.fixed.srcWebp,
         height: "400px",
       }}
     >

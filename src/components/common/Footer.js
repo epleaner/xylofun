@@ -7,7 +7,19 @@ const Footer = () => (
       © 2020 XyloFun
     </Text>
     <Text mt={2} fontSize={1} textAlign="center">
-      Website by <Link href="https://elipleaner.com">Eli Pleaner</Link>
+      Website by{" "}
+      <Link
+        href="https://elipleaner.com"
+        sx={{
+          color: "inherit",
+          textDecoration: "none",
+          ":hover": {
+            textDecoration: "underline",
+          },
+        }}
+      >
+        Eli Pleaner
+      </Link>
     </Text>
   </Box>
 )

@@ -10,6 +10,11 @@ export default () => {
     {
       pageContent: contentfulPage(title: { eq: "How to Order" }) {
         title
+        banner {
+          fixed(quality: 100, width: 2000) {
+            ...GatsbyContentfulFixed_withWebp
+          }
+        }
         richText {
           json
         }
@@ -21,7 +26,7 @@ export default () => {
     <Section
       bannerProps={{
         title: pageContent.title,
-        image: BannerImage,
+        image: pageContent.banner.fixed.srcWebp,
         height: "400px",
       }}
     >

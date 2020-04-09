@@ -1,29 +1,40 @@
-import React from 'react';
-import {Flex, Box, Text, Button} from 'rebass/styled-components';
-import styled from 'styled-components';
+import React from "react"
+import styled from "styled-components"
+import { Flex, Box } from "rebass/styled-components"
 
-import Section from '@common/Section';
-import Demo from '@static/video/xylofun-demo-short.mp4';
-const StyledVideo = styled.video`
+const IFrameWrapper = styled.div`
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
   width: 100%;
-`;
+  height: 0;
+  & iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+`
+
+import Section from "@common/Section"
 
 const IntroVideo = () => (
   <Section minHeight={0} bg="white">
     <Box width={1}>
       <Flex justifyContent="center">
-        <StyledVideo
-          controls
-          type="video/mp4"
-          src={Demo}
-          frameBorder="0"
-          allowFullScreen
-        >
-          Sorry, your browser doesn't support embedded videos.
-        </StyledVideo>
+        <IFrameWrapper>
+          <iframe
+            src="https://player.vimeo.com/video/405772499"
+            width="640"
+            height="360"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+          ></iframe>
+        </IFrameWrapper>
       </Flex>
     </Box>
   </Section>
-);
+)
 
-export default IntroVideo;
+export default IntroVideo

@@ -59,6 +59,32 @@ const theme = {
       lineHeight: "body",
       fontWeight: "body",
     },
+    h1: {
+      fontSize: [6, 7],
+      ...baseTheme.text.heading,
+      marginY: [4, 5],
+    },
+    h2: {
+      fontSize: [4, 5],
+      ...baseTheme.text.heading,
+      marginY: [4, 5],
+    },
+    h3: {
+      fontSize: [3, 4],
+      ...baseTheme.text.heading,
+      marginTop: [9, 10],
+      marginBottom: [4, 5],
+    },
+    h4: {
+      fontSize: [3, 4],
+      ...baseTheme.text.heading,
+      marginY: [4, 5],
+    },
+    h5: {
+      fontSize: [1, 2],
+      ...baseTheme.text.heading,
+      marginY: [4, 5],
+    },
   },
   buttons: {
     ...baseTheme.buttons,

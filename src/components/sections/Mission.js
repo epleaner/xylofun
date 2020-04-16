@@ -1,11 +1,12 @@
 import React from "react"
-import { Flex, Box, Text, Button } from "rebass/styled-components"
-import styled from "styled-components"
-import StyledGatsbyLink from "@common/StyledGatsbyLink"
+import { graphql, useStaticQuery } from "gatsby"
+
+import { Flex, Box, Text } from "rebass/styled-components"
 
 import Section from "@common/Section"
 import AudioPlayer from "@common/AudioPlayer"
 import Circle from "@common/shapes/Circle"
+import ContentfulRichText from "@common/ContentfulRichText"
 
 import Audio from "@static/audio/igwijo_tutti.mp3"
 
@@ -17,55 +18,91 @@ const CircleContainer = ({ children }) => (
   </Box>
 )
 
-const Mission = () => (
-  <Section bg="white">
-    <Flex justifyContent="center" flexWrap="wrap">
-      <Box width={1}>
-        <AudioPlayer src={Audio} />
-      </Box>
-      <Flex alignItems="center" flexWrap="wrap" height="100%">
-        <Box width={1} mx={[0, 4]}>
-          <Flex flexWrap="wrap">
-            <CircleContainer>
-              <Box mb={4}>
-                <Circle color="red" />
-              </Box>
-              <Box mt={8} mx={2}>
-                <Text lineHeight="body" textAlign="center">
-                  The XyloFun programme aims to extend the benefits of music
-                  education to the schools in South Africa that need it the
-                  most.
-                </Text>
-              </Box>
-            </CircleContainer>
-            <CircleContainer>
-              <Box mb={4}>
-                <Circle color="green" />
-              </Box>
-              <Box mt={8} mx={2}>
-                <Text lineHeight="body" textAlign="center">
-                  The XyloFun system enables students to start playing exciting,
-                  creative music from the very first lesson.
-                </Text>
-              </Box>
-            </CircleContainer>
-            <CircleContainer>
-              <Box mb={4}>
-                <Circle color="blue" />
-              </Box>
-              <Box mt={8} mx={2}>
-                <Text lineHeight="body" textAlign="center">
-                  XyloFun training courses give teachers instruments, skills and
-                  confidence to teach the music curriculum effectively,
-                  regardless of previous experience.
-                </Text>
-              </Box>
-            </CircleContainer>
-          </Flex>
+const Mission = () => {
+  const {
+    redCircleText,
+    greenCircleText,
+    blueCircleText,
+  } = useStaticQuery(graphql`
+    {
+      redCircleText: contentfulBlurb(name: { eq: "Mission: Red Circle" }) {
+        childContentfulBlurbBodyRichTextNode {
+          json
+        }
+      }
+      greenCircleText: contentfulBlurb(name: { eq: "Mission: Green Circle" }) {
+        childContentfulBlurbBodyRichTextNode {
+          json
+        }
+      }
+      blueCircleText: contentfulBlurb(name: { eq: "Mission: Blue Circle" }) {
+        childContentfulBlurbBodyRichTextNode {
+          json
+        }
+      }
+    }
+  `)
+
+  console.log(redCircleText, greenCircleText, blueCircleText)
+
+  return (
+    <Section bg="white">
+      <Flex justifyContent="center" flexWrap="wrap">
+        <Box width={1}>
+          <AudioPlayer src={Audio} />
         </Box>
+        <Flex alignItems="center" flexWrap="wrap" height="100%">
+          <Box width={1} mx={[0, 4]}>
+            <Flex flexWrap="wrap">
+              <CircleContainer>
+                <Box mb={4}>
+                  <Circle color="red" />
+                </Box>
+                <Box mt={8} mx={2}>
+                  <Text lineHeight="body" textAlign="center">
+                    <ContentfulRichText
+                      document={
+                        redCircleText.childContentfulBlurbBodyRichTextNode.json
+                      }
+                    />
+                  </Text>
+                </Box>
+              </CircleContainer>
+              <CircleContainer>
+                <Box mb={4}>
+                  <Circle color="green" />
+                </Box>
+                <Box mt={8} mx={2}>
+                  <Text lineHeight="body" textAlign="center">
+                    <ContentfulRichText
+                      document={
+                        greenCircleText.childContentfulBlurbBodyRichTextNode
+                          .json
+                      }
+                    />
+                  </Text>
+                </Box>
+              </CircleContainer>
+              <CircleContainer>
+                <Box mb={4}>
+                  <Circle color="blue" />
+                </Box>
+                <Box mt={8} mx={2}>
+                  <Text lineHeight="body" textAlign="center">
+                    <ContentfulRichText
+                      document={
+                        blueCircleText.childContentfulBlurbBodyRichTextNode.json
+                      }
+                    />
+                  </Text>
+                </Box>
+              </CircleContainer>
+            </Flex>
+          </Box>
+        </Flex>
       </Flex>
-    </Flex>
-  </Section>
-)
+    </Section>
+  )
+}
 
 export default Mission

@@ -1,12 +1,12 @@
 import React from "react"
-import { Text, Box } from "rebass/styled-components"
+import { Flex } from "rebass/styled-components"
 
 import NavLink from "@common/NavLink"
 
 const WideMenu = ({ items }) => (
   <>
     {items.map(item => (
-      <Box key={item} mx={2}>
+      <Flex key={item} mx={2} alignItems="center">
         <NavLink
           to={
             item === "Home"
@@ -19,7 +19,7 @@ const WideMenu = ({ items }) => (
         >
           {item}
         </NavLink>
-      </Box>
+      </Flex>
     ))}
   </>
 )

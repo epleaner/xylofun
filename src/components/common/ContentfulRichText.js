@@ -47,6 +47,7 @@ const ContentfulRichText = props => {
       ),
       [BLOCKS.EMBEDDED_ASSET]: node => {
         let { title, description, file } = node.data.target.fields
+        if (!file) return null
         file = file["en-US"] ? file["en-US"] : file
 
         const mimeType = file.contentType
@@ -57,7 +58,7 @@ const ContentfulRichText = props => {
           case "image":
             content = (
               <Image
-                my={5}
+                mt={5}
                 width={["400px", "600px"]}
                 title={title ? title["en-US"] : null}
                 alt={description ? description["en-US"] : null}

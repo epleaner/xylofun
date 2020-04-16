@@ -27,7 +27,7 @@ const NavBar = () => (
     as="header"
     bg="background"
     width={1}
-    py={2}
+    height="48px"
     px={[2, 10]}
     alignItems="center"
   >
@@ -35,7 +35,7 @@ const NavBar = () => (
       <BrandText fontWeight="bold" />
     </StyledGatsbyLink>
     <Box mx="auto" />
-    <Box display={["none", "flex"]}>
+    <Box display={["none", "flex"]} height="100%">
       <WideMenu items={navItems} />
     </Box>
     <Box display={["flex", "none"]}>

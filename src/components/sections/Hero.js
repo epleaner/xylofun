@@ -34,7 +34,7 @@ const Hero = () => {
     <Section mt={6}>
       <Banner image={BannerImage}>
         <HeadingBox>
-          <Heading color="white" fontSize={8}>
+          <Heading color="white" fontSize={[7, 8]}>
             <BrandText />
           </Heading>
           <Text color="white" fontSize={6}>

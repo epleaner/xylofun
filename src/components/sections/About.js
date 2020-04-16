@@ -33,7 +33,7 @@ const About = () => {
         height: "400px",
       }}
     >
-      <Box mx={[3, 6]} my={[5]}>
+      <Box mx={[3, 15]} my={[5]}>
         <ContentfulRichText document={pageContent.richText.json} />
       </Box>
     </Section>

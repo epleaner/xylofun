@@ -36,6 +36,11 @@ const palette = {
 
 const theme = {
   ...baseTheme,
+  fonts: {
+    body: "Nunito, sans-serif",
+    heading: "Open Sans, sans-serif",
+    monospace: "Menlo, monospace",
+  },
   colors: {
     ...baseTheme.colors,
     background: "#fafafa",

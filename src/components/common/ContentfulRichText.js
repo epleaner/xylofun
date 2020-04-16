@@ -41,7 +41,7 @@ const ContentfulRichText = props => {
         </Heading>
       ),
       [BLOCKS.PARAGRAPH]: (node, children) => (
-        <Text lineHeight="body" my={2}>
+        <Text lineHeight="body" fontFamily="body" my={2}>
           {children}
         </Text>
       ),

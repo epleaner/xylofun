@@ -38,8 +38,6 @@ export default () => {
     }
   `)
 
-  console.log(teamPhotos)
-
   let teamPhotosByName = {}
   teamPhotos.edges.forEach(
     ({
@@ -72,7 +70,7 @@ export default () => {
         </Box>
         <Box px={[3, 4, 5]} width={[1, 1 / 2]}>
           <Heading>Pedro Espi-Sanchis</Heading>
-          <Text lineHeight="body">
+          <Text lineHeight="body" fontFamily="body">
             Pedro Espi-Sanchis is the founder and director of XyloFun. He is
             well known as ”Pedro the Music Man” from a long-running children’s
             television series on SABC. He is a musician and African music

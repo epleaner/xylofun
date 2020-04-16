@@ -1,22 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {Flex, Heading} from 'rebass/styled-components';
-import styled from 'styled-components';
-import {ParallaxBanner} from 'react-scroll-parallax';
+import React from "react"
+import PropTypes from "prop-types"
+import { Flex, Heading } from "rebass/styled-components"
+import styled from "styled-components"
+import { ParallaxBanner } from "react-scroll-parallax"
 
 const HeadingContainer = styled(Flex)`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-`;
+`
 const ElevatedHeading = styled(Heading)`
   z-index: 1;
   color: white;
-`;
+`
 
-const Banner = ({height, image, title, children}) => (
+const Banner = ({ height, image, title, children }) => (
   <ParallaxBanner
-    style={{height: height || '100vh'}}
+    style={{ height: height || "100vh" }}
     layers={[
       {
         image: image,
@@ -32,13 +32,13 @@ const Banner = ({height, image, title, children}) => (
     )}
     {children}
   </ParallaxBanner>
-);
+)
 
 Banner.propTypes = {
   height: PropTypes.string,
   image: PropTypes.string.isRequired,
   title: PropTypes.string,
   children: PropTypes.node,
-};
+}
 
-export default Banner;
+export default Banner

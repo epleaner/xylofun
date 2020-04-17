@@ -10,6 +10,13 @@ const ContentfulRichText = props => {
   const options = {
     renderMark: {},
     renderNode: {
+      [BLOCKS.QUOTE]: (node, children) => (
+        <blockquote
+          style={{ borderLeft: "2px solid orange", paddingLeft: "15px" }}
+        >
+          {children}
+        </blockquote>
+      ),
       [BLOCKS.HEADING_1]: (node, children) => (
         <Heading variant="h1" as="h1">
           {children}

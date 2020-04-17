@@ -43,8 +43,6 @@ const Mission = () => {
     }
   `)
 
-  console.log(redCircleText, greenCircleText, blueCircleText)
-
   return (
     <Section bg="white">
       <Flex justifyContent="center" flexWrap="wrap">

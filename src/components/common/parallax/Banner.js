@@ -27,7 +27,7 @@ const Banner = ({ height, image, title, children }) => (
   >
     {title && (
       <HeadingContainer justifyContent="center" width={1}>
-        <ElevatedHeading fontSize={[6]}>{title}</ElevatedHeading>
+        <ElevatedHeading fontSize={[6, 7]}>{title}</ElevatedHeading>
       </HeadingContainer>
     )}
     {children}
@@ -37,7 +37,7 @@ const Banner = ({ height, image, title, children }) => (
 Banner.propTypes = {
   height: PropTypes.string,
   image: PropTypes.string.isRequired,
-  title: PropTypes.string,
+  title: PropTypes.node,
   children: PropTypes.node,
 }
 

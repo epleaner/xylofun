@@ -12,7 +12,6 @@ import theme from "@styles/theme"
 import GlobalStyles from "@styles/GlobalStyles"
 
 const Page = ({ title, children }) => {
-  console.log(theme)
   return (
     <ThemeProvider theme={theme}>
       <>

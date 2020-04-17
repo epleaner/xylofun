@@ -23,7 +23,6 @@ export default () => {
       bannerProps={{
         title: pageContent.title,
         image: pageContent.banner.fixed.srcWebp,
-        height: "400px",
       }}
     >
       <Flex justifyContent="center" mx={[3, 6]} width={1}>

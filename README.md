@@ -11,4 +11,3 @@ Made with:
 todo:
 
 - get short videos
-- get updated lisa bio

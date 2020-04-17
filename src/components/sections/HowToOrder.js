@@ -27,7 +27,6 @@ export default () => {
       bannerProps={{
         title: pageContent.title,
         image: pageContent.banner.fixed.srcWebp,
-        height: "400px",
       }}
     >
       <Box mx={[3, 6]} my={4}>

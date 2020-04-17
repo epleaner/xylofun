@@ -6,8 +6,8 @@ import { ParallaxBanner } from "react-scroll-parallax"
 
 const HeadingContainer = styled(Flex)`
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 40%;
+  transform: translateY(-40%);
 `
 const ElevatedHeading = styled(Heading)`
   z-index: 1;

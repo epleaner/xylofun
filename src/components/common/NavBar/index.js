@@ -28,7 +28,7 @@ const NavBar = () => (
     bg="background"
     width={1}
     height="48px"
-    px={[2, 10]}
+    px={2}
     alignItems="center"
   >
     <StyledGatsbyLink activeClassName="" to="/">

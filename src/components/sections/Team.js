@@ -80,7 +80,7 @@ export default () => {
   )
 
   return (
-    <Section>
+    <Section mb={5}>
       <Flex my={8} width={1} alignItems="center" flexWrap="wrap">
         <Box mb={[3, 0]} width={[1, 1 / 2]}>
           <Img fluid={teamPhotosByName.pedro} />

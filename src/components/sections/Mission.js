@@ -4,19 +4,8 @@ import { graphql, useStaticQuery } from "gatsby"
 import { Flex, Box, Text } from "rebass/styled-components"
 
 import Section from "@common/Section"
-import AudioPlayer from "@common/AudioPlayer"
-import Circle from "@common/shapes/Circle"
+import CircleWithBody from "@common/shapes/CircleWithBody"
 import ContentfulRichText from "@common/ContentfulRichText"
-
-import Audio from "@static/audio/igwijo_tutti.mp3"
-
-const CircleContainer = ({ children }) => (
-  <Box my={[10, 3]} width={[1, 1, 1 / 3]}>
-    <Flex justifyContent="center" flexWrap="wrap">
-      {children}
-    </Flex>
-  </Box>
-)
 
 const Mission = () => {
   const {
@@ -44,57 +33,68 @@ const Mission = () => {
   `)
 
   return (
-    <Section bg="white">
+    <Section minHeight="75vh" bg="orange.base">
       <Flex justifyContent="center" flexWrap="wrap">
-        <Box width={1}>
-          <AudioPlayer src={Audio} />
-        </Box>
         <Flex alignItems="center" flexWrap="wrap" height="100%">
           <Box width={1} mx={[0, 4]}>
             <Flex flexWrap="wrap">
-              <CircleContainer>
-                <Box mb={4}>
-                  <Circle color="red" />
+              <Box width={[1, 1, 1 / 3]}>
+                <Box m={3} my={6}>
+                  <CircleWithBody color="red">
+                    <Text
+                      mx={6}
+                      lineHeight="body"
+                      color="background"
+                      textAlign="center"
+                    >
+                      <ContentfulRichText
+                        document={
+                          redCircleText.childContentfulBlurbBodyRichTextNode
+                            .json
+                        }
+                      />
+                    </Text>
+                  </CircleWithBody>
                 </Box>
-                <Box mt={8} mx={2}>
-                  <Text lineHeight="body" textAlign="center">
-                    <ContentfulRichText
-                      document={
-                        redCircleText.childContentfulBlurbBodyRichTextNode.json
-                      }
-                    />
-                  </Text>
+              </Box>
+              <Box width={[1, 1, 1 / 3]}>
+                <Box m={3} my={6}>
+                  <CircleWithBody color="green">
+                    <Text
+                      mx={6}
+                      lineHeight="body"
+                      color="background"
+                      textAlign="center"
+                    >
+                      <ContentfulRichText
+                        document={
+                          greenCircleText.childContentfulBlurbBodyRichTextNode
+                            .json
+                        }
+                      />
+                    </Text>
+                  </CircleWithBody>
                 </Box>
-              </CircleContainer>
-              <CircleContainer>
-                <Box mb={4}>
-                  <Circle color="green" />
+              </Box>
+              <Box width={[1, 1, 1 / 3]}>
+                <Box m={3} my={6}>
+                  <CircleWithBody color="blue">
+                    <Text
+                      mx={6}
+                      lineHeight="body"
+                      color="background"
+                      textAlign="center"
+                    >
+                      <ContentfulRichText
+                        document={
+                          blueCircleText.childContentfulBlurbBodyRichTextNode
+                            .json
+                        }
+                      />
+                    </Text>
+                  </CircleWithBody>
                 </Box>
-                <Box mt={8} mx={2}>
-                  <Text lineHeight="body" textAlign="center">
-                    <ContentfulRichText
-                      document={
-                        greenCircleText.childContentfulBlurbBodyRichTextNode
-                          .json
-                      }
-                    />
-                  </Text>
-                </Box>
-              </CircleContainer>
-              <CircleContainer>
-                <Box mb={4}>
-                  <Circle color="blue" />
-                </Box>
-                <Box mt={8} mx={2}>
-                  <Text lineHeight="body" textAlign="center">
-                    <ContentfulRichText
-                      document={
-                        blueCircleText.childContentfulBlurbBodyRichTextNode.json
-                      }
-                    />
-                  </Text>
-                </Box>
-              </CircleContainer>
+              </Box>
             </Flex>
           </Box>
         </Flex>

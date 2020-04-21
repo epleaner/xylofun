@@ -64,8 +64,11 @@ const theme = {
       lineHeight: "body",
       fontWeight: "body",
     },
+    small: {
+      fontSize: "0.6rem",
+    },
     h1: {
-      fontSize: [6, 7],
+      fontSize: [5, 6],
       ...baseTheme.text.heading,
       marginY: [4, 5],
     },
@@ -105,13 +108,13 @@ const theme = {
     outline: {
       ...baseTheme.buttons.outline,
       transition: "all linear .15s",
-      color: "white",
-      border: "1px solid white",
+      color: "#fafafa",
+      border: "1px solid #fafafa",
       boxShadow: "none",
-      ":hover,:focus,.active": { bg: "white", color: "inherit" },
+      ":hover,:focus,.active": { bg: "#fafafa", color: "inherit" },
     },
     circle: {
-      bg: "white",
+      bg: "#fafafa",
       width: "200px",
       height: "200px",
       borderRadius: "100%",

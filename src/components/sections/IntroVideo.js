@@ -19,7 +19,7 @@ const IFrameWrapper = styled.div`
 import Section from "@common/Section"
 
 const IntroVideo = () => (
-  <Section minHeight={0} bg="white">
+  <Section minHeight={0} bg="background">
     <Box width={1}>
       <Flex justifyContent="center">
         <IFrameWrapper>

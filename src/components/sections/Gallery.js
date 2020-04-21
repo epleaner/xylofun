@@ -57,7 +57,7 @@ export default () => {
   })
 
   return (
-    <Section>
+    <Section mb={5}>
       <Box mt={9}>
         <StyledCarousel
           showArrows={true}

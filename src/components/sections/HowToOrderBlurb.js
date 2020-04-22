@@ -5,6 +5,7 @@ import ContentfulRichText from "@common/ContentfulRichText"
 
 import StyledGatsbyLink from "@common/StyledGatsbyLink"
 import Section from "@common/Section"
+import FadeIn from "@common/FadeIn"
 
 export default () => {
   const { text } = useStaticQuery(graphql`
@@ -19,22 +20,26 @@ export default () => {
   return (
     <Section alignItems="center" bg="blue.base" px={[3, 5]}>
       <Flex width={[1, 2 / 3]}>
-        <Box>
-          <Text variant="heading" color="background">
-            <ContentfulRichText
-              document={text.childContentfulBlurbBodyRichTextNode.json}
-            />
-          </Text>
-        </Box>
+        <FadeIn>
+          <Box>
+            <Text variant="heading" color="white">
+              <ContentfulRichText
+                document={text.childContentfulBlurbBodyRichTextNode.json}
+              />
+            </Text>
+          </Box>
+        </FadeIn>
       </Flex>
       <Flex justifyContent="center" width={[1, 1 / 3]}>
-        <Box>
-          <StyledGatsbyLink to="/how-to-order">
-            <Button sx={{ cursor: "pointer" }} variant="outline" p={3}>
-              <Text variant="nav">How to order</Text>
-            </Button>
-          </StyledGatsbyLink>
-        </Box>
+        <FadeIn right>
+          <Box>
+            <StyledGatsbyLink to="/how-to-order">
+              <Button sx={{ cursor: "pointer" }} variant="outline" p={3}>
+                <Text variant="nav">How to order</Text>
+              </Button>
+            </StyledGatsbyLink>
+          </Box>
+        </FadeIn>
       </Flex>
     </Section>
   )

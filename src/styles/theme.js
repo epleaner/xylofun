@@ -43,7 +43,7 @@ const theme = {
   },
   colors: {
     ...baseTheme.colors,
-    background: "#fafafa",
+    background: "papayawhip",
     primary: palette.blue.base,
     secondary: palette.green.base,
     ...palette,

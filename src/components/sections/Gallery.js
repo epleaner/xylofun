@@ -57,8 +57,8 @@ export default () => {
   })
 
   return (
-    <Section mb={5}>
-      <Box mt={9}>
+    <Section>
+      <Box mt={9} mb={5}>
         <StyledCarousel
           showArrows={true}
           infiniteLoop={true}

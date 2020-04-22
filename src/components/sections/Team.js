@@ -10,13 +10,13 @@ import LightboxGallery from "@common/LightboxGallery"
 export default () => {
   const {
     pedroMedia,
-    teamPhotos,
+    teamMemberPortraits,
     pedroBio,
     lisaBio,
     nelsonBio,
   } = useStaticQuery(graphql`
     {
-      pedroMedia: contentfulMediaCollection(name: { eq: "Pedro Bio" }) {
+      pedroMedia: contentfulMediaCollection(name: { eq: "Pedro Bio Gallery" }) {
         media {
           file {
             fileName
@@ -26,15 +26,13 @@ export default () => {
           }
         }
       }
-      teamPhotos: allFile(filter: { sourceInstanceName: { eq: "team" } }) {
-        edges {
-          node {
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid_withWebp
-                originalName
-              }
-            }
+      teamMemberPortraits: contentfulMediaCollection(
+        name: { eq: "Team Member Portraits" }
+      ) {
+        media {
+          title
+          fluid {
+            ...GatsbyContentfulFluid_withWebp
           }
         }
       }
@@ -57,12 +55,8 @@ export default () => {
   `)
 
   let teamPhotosByName = {}
-  teamPhotos.edges.forEach(
-    ({
-      node: {
-        childImageSharp: { fluid },
-      },
-    }) => (teamPhotosByName[fluid.originalName.split(".")[0]] = fluid)
+  teamMemberPortraits.media.forEach(
+    ({ title, fluid }) => (teamPhotosByName[title.toLowerCase()] = fluid)
   )
 
   const pedroGalleryPhotos = pedroMedia.media.map(
@@ -80,47 +74,49 @@ export default () => {
   )
 
   return (
-    <Section mb={5}>
-      <Flex my={8} width={1} alignItems="center" flexWrap="wrap">
-        <Box mb={[3, 0]} width={[1, 1 / 2]}>
-          <Img fluid={teamPhotosByName.pedro} />
-          <LightboxGallery margin={0} photos={pedroGalleryPhotos} />
-        </Box>
-        <Box px={[3, 4, 5]} width={[1, 1 / 2]}>
-          <Heading>Pedro Espi-Sanchis</Heading>
-          <Text lineHeight="body" fontFamily="body">
-            <ContentfulRichText
-              document={pedroBio.childContentfulBlurbBodyRichTextNode.json}
-            />
-          </Text>
-        </Box>
-      </Flex>
-      <Flex width={1} alignItems="center" flexWrap="wrap">
-        <Box order={[1, 0]} px={[3, 4, 5]} width={[1, 1 / 2]}>
-          <Heading>Lisa Espi</Heading>
-          <Text lineHeight="body">
-            <ContentfulRichText
-              document={lisaBio.childContentfulBlurbBodyRichTextNode.json}
-            />
-          </Text>
-        </Box>
-        <Box order={[0, 1]} mb={[3, 0]} mt={[4, 0]} width={[1, 1 / 2]}>
-          <Img fluid={teamPhotosByName.lisa} />
-        </Box>
-      </Flex>
-      <Flex width={1} alignItems="center" flexWrap="wrap">
-        <Box mb={[3, 0]} mt={[4, 0]} width={[1, 1 / 2]}>
-          <Img fluid={teamPhotosByName.nelson} />
-        </Box>
-        <Box px={[3, 4, 5]} width={[1, 1 / 2]}>
-          <Heading>Nelson Banderson</Heading>
-          <Text lineHeight="body">
-            <ContentfulRichText
-              document={nelsonBio.childContentfulBlurbBodyRichTextNode.json}
-            />
-          </Text>
-        </Box>
-      </Flex>
+    <Section>
+      <Box mb={5}>
+        <Flex my={8} width={1} alignItems="center" flexWrap="wrap">
+          <Box mb={[3, 0]} width={[1, 1 / 2]}>
+            <Img fluid={teamPhotosByName.pedro} />
+            <LightboxGallery margin={0} photos={pedroGalleryPhotos} />
+          </Box>
+          <Box px={[3, 4, 5]} width={[1, 1 / 2]}>
+            <Heading>Pedro Espi-Sanchis</Heading>
+            <Text lineHeight="body" fontFamily="body">
+              <ContentfulRichText
+                document={pedroBio.childContentfulBlurbBodyRichTextNode.json}
+              />
+            </Text>
+          </Box>
+        </Flex>
+        <Flex width={1} alignItems="center" flexWrap="wrap">
+          <Box order={[1, 0]} px={[3, 4, 5]} width={[1, 1 / 2]}>
+            <Heading>Lisa Espi</Heading>
+            <Text lineHeight="body">
+              <ContentfulRichText
+                document={lisaBio.childContentfulBlurbBodyRichTextNode.json}
+              />
+            </Text>
+          </Box>
+          <Box order={[0, 1]} mb={[3, 0]} mt={[4, 0]} width={[1, 1 / 2]}>
+            <Img fluid={teamPhotosByName.lisa} />
+          </Box>
+        </Flex>
+        <Flex width={1} alignItems="center" flexWrap="wrap">
+          <Box mb={[3, 0]} mt={[4, 0]} width={[1, 1 / 2]}>
+            <Img fluid={teamPhotosByName.nelson} />
+          </Box>
+          <Box px={[3, 4, 5]} width={[1, 1 / 2]}>
+            <Heading>Nelson Banderson</Heading>
+            <Text lineHeight="body">
+              <ContentfulRichText
+                document={nelsonBio.childContentfulBlurbBodyRichTextNode.json}
+              />
+            </Text>
+          </Box>
+        </Flex>
+      </Box>
     </Section>
   )
 }

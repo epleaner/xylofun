@@ -24,7 +24,7 @@ const Hero = () => {
     <Section mt={6} minHeight={["300px", "100vh"]}>
       <Banner
         height={true}
-        title={<BrandText fontSize={[7, 8]} />}
+        title={<BrandText fontSize={[7, "8rem"]} />}
         image={pageContent.banner.fixed.srcWebp}
       ></Banner>
     </Section>

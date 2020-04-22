@@ -15,7 +15,7 @@ const StyledHoverCursor = styled(Box)`
 
 const StyledDropMenu = styled.nav`
   position: fixed;
-  background-color: white;
+  background-color: papayawhip;
   top: 0;
   left: 0;
   height: 100vh;

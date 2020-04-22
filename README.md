@@ -9,5 +9,3 @@ Made with:
 - Rebass
 
 todo:
-
-- get short videos
